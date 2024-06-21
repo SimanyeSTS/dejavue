@@ -1,17 +1,21 @@
 <template>
-  
+  <div id="app">
+    <h1>My Friends</h1>
+    <Friends/>
+
+    <h1>My Products</h1>
+    <Products/>
+  </div>
 </template>
 
 <script>
-import Card from './components/Card.vue';
-import Friends from './components/Friends.vue';
-import Products from './components/Products.vue';
+import Friends from '@/components/Friends.vue';
+import Products from '@/components/Products.vue';
 
 
 export default {
   name: 'App',
   components: {
-    Card,
     Friends,
     Products
   }
