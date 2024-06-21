@@ -5,6 +5,7 @@
           <template v-slot:header>
             <h3>{{ friend.firstName }} {{ friend.lastName }}</h3>
           </template>
+          
           <template v-slot:body>
             <p>ID: {{ friend.id }}</p>
             <p>Gender: {{ friend.gender }}</p>
@@ -28,7 +29,7 @@
       return {
         friends: [
             { id: 1, firstName: 'Yakupha', lastName: 'Ntonintshi', gender: 'female', profile: '' },
-            { id: 2, firstName: 'Mbalentle,', lastName: 'Diko', gender: 'female', profile: ''},
+            { id: 2, firstName: 'Mbalentle', lastName: 'Diko', gender: 'female', profile: ''},
             { id: 3, firstName: 'Khanya', lastName: 'Pupuma', gender: 'male', profile: '' },
           
         ]
