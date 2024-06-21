@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Card'
+  name: 'CardComp'
 }
 </script>
 
