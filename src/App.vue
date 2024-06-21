@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <h1>My Friends</h1>
-    <Friends/>
+    <Friends />
 
     <h1>My Products</h1>
-    <Products/>
+    <Products />
   </div>
 </template>
 
