@@ -1,7 +1,7 @@
 <template>
-    <div>
-      <div v-if="products.length > 0">
-        <Card v-for="product in products" :key="product.id">
+    <div class="page-container">
+      <div v-if="products.length > 0" class="cards-container">
+        <CardComp v-for="product in products" :key="product.id">
           <template v-slot:header>
             <h3>{{ product.name }}</h3>
           </template>
@@ -11,7 +11,7 @@
             <p>Status: {{ product.status }}</p>
             <p>Description: {{ product.description }}</p>
           </template>
-        </Card>
+        </CardComp>
       </div>
       <div v-else class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
@@ -20,11 +20,11 @@
   </template>
   
   <script>
-  import Card from '@/components/Card.vue';
+  import CardComp from '@/components/Card.vue';
   
   export default {
     name: 'ProductsComp',
-    components: { Card },
+    components: { CardComp },
     data() {
       return {
         products: [
@@ -36,4 +36,19 @@
     }
   }
   </script>
+  
+  <style>
+  .page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  </style>
   

@@ -1,18 +1,17 @@
 <template>
     <div>
-      <div v-if="friends.length > 0">
-        <Card v-for="friend in friends" :key="friend.id" :class="{'border-gold': friend.gender === 'male', 'border-pink': friend.gender === 'female'}">
-          <template #header>
-              <img :src="friend.profile" :alt="friend.firstName" class="img-fluid" loading="lazy" width="200px" height="50px">
-            </template>
-            <template #body>
-              <h3>{{ friend.firstName }} {{ friend.lastName }}</h3>
+      <div v-if="friends.length > 0" class="cards-container">
+        <CardComp v-for="friend in friends" :key="friend.id" :class="{'border-gold': friend.gender === 'male', 'border-pink': friend.gender === 'female'}">
+          <template v-slot:header>
+            <h3>{{ friend.firstName }} {{ friend.lastName }}</h3>
+          </template>
+          <template v-slot:body>
+              <p>Profile:</p>
+              <img :src="friend.profile" alt="Profile image" class="img-fluid" />
             <p>ID: {{ friend.id }}</p>
             <p>Gender: {{ friend.gender }}</p>
-            <p>Profile:</p>
-
           </template>
-        </Card>
+        </CardComp>
       </div>
       <div v-else class="spinner-border" role="status">
         <span class="sr-only">Loading...</span>
@@ -21,11 +20,11 @@
   </template>
   
   <script>
-  import Card from '@/components/Card.vue';
+  import CardComp from '@/components/Card.vue';
   
   export default {
     name: 'FriendsComp',
-    components: { Card },
+    components: { CardComp },
     data() {
       return {
         friends: [
@@ -39,6 +38,12 @@
   </script>
   
   <style>
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
   .border-gold {
     border-color: gold !important;
   }
